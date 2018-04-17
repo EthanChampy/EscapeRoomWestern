@@ -1,0 +1,344 @@
+fileFormatVersion: 2
+guid: 3da43be0a8151914e9f6171779b7cf31
+timeCreated: 1523906447
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: backer board
+    100002: //RootNode
+    100004: cabinet
+    100006: Circle
+    100008: Circle.001
+    100010: Circle.002
+    100012: Circle.003
+    100014: Circle.004
+    100016: Circle.005
+    100018: countertop
+    100020: door left
+    100022: door right
+    100024: drawer
+    100026: glass shelf
+    100028: 'top '
+    100030: wine bottle
+    100032: wine bottle..004
+    100034: wine bottle..005
+    100036: wine bottle..026
+    100038: wine bottle..027
+    100040: wine bottle..028
+    100042: wine bottle..045
+    100044: wine bottle..046
+    100046: wine bottle..047
+    100048: wine bottle..054
+    100050: wine bottle..055
+    100052: wine bottle..056
+    100054: wine bottle..070
+    100056: wine bottle..071
+    100058: wine bottle..072
+    100060: wine bottle..083
+    100062: wine bottle..084
+    100064: wine bottle..109
+    100066: wine bottle..110
+    100068: wine bottle..118
+    100070: wine bottle..119
+    100072: wine bottle..133
+    100074: wine bottle..134
+    100076: wine bottle..152
+    100078: wine bottle..153
+    100080: wine bottle..154
+    100082: wine bottle..166
+    100084: wine bottle..167
+    100086: wine shelf
+    400000: backer board
+    400002: //RootNode
+    400004: cabinet
+    400006: Circle
+    400008: Circle.001
+    400010: Circle.002
+    400012: Circle.003
+    400014: Circle.004
+    400016: Circle.005
+    400018: countertop
+    400020: door left
+    400022: door right
+    400024: drawer
+    400026: glass shelf
+    400028: 'top '
+    400030: wine bottle
+    400032: wine bottle..004
+    400034: wine bottle..005
+    400036: wine bottle..026
+    400038: wine bottle..027
+    400040: wine bottle..028
+    400042: wine bottle..045
+    400044: wine bottle..046
+    400046: wine bottle..047
+    400048: wine bottle..054
+    400050: wine bottle..055
+    400052: wine bottle..056
+    400054: wine bottle..070
+    400056: wine bottle..071
+    400058: wine bottle..072
+    400060: wine bottle..083
+    400062: wine bottle..084
+    400064: wine bottle..109
+    400066: wine bottle..110
+    400068: wine bottle..118
+    400070: wine bottle..119
+    400072: wine bottle..133
+    400074: wine bottle..134
+    400076: wine bottle..152
+    400078: wine bottle..153
+    400080: wine bottle..154
+    400082: wine bottle..166
+    400084: wine bottle..167
+    400086: wine shelf
+    2300000: backer board
+    2300002: cabinet
+    2300004: Circle
+    2300006: Circle.001
+    2300008: Circle.002
+    2300010: Circle.003
+    2300012: Circle.004
+    2300014: Circle.005
+    2300016: countertop
+    2300018: door left
+    2300020: door right
+    2300022: drawer
+    2300024: glass shelf
+    2300026: 'top '
+    2300028: wine bottle
+    2300030: wine bottle..004
+    2300032: wine bottle..005
+    2300034: wine bottle..026
+    2300036: wine bottle..027
+    2300038: wine bottle..028
+    2300040: wine bottle..045
+    2300042: wine bottle..046
+    2300044: wine bottle..047
+    2300046: wine bottle..054
+    2300048: wine bottle..055
+    2300050: wine bottle..056
+    2300052: wine bottle..070
+    2300054: wine bottle..071
+    2300056: wine bottle..072
+    2300058: wine bottle..083
+    2300060: wine bottle..084
+    2300062: wine bottle..109
+    2300064: wine bottle..110
+    2300066: wine bottle..118
+    2300068: wine bottle..119
+    2300070: wine bottle..133
+    2300072: wine bottle..134
+    2300074: wine bottle..152
+    2300076: wine bottle..153
+    2300078: wine bottle..154
+    2300080: wine bottle..166
+    2300082: wine bottle..167
+    2300084: wine shelf
+    3300000: backer board
+    3300002: cabinet
+    3300004: Circle
+    3300006: Circle.001
+    3300008: Circle.002
+    3300010: Circle.003
+    3300012: Circle.004
+    3300014: Circle.005
+    3300016: countertop
+    3300018: door left
+    3300020: door right
+    3300022: drawer
+    3300024: glass shelf
+    3300026: 'top '
+    3300028: wine bottle
+    3300030: wine bottle..004
+    3300032: wine bottle..005
+    3300034: wine bottle..026
+    3300036: wine bottle..027
+    3300038: wine bottle..028
+    3300040: wine bottle..045
+    3300042: wine bottle..046
+    3300044: wine bottle..047
+    3300046: wine bottle..054
+    3300048: wine bottle..055
+    3300050: wine bottle..056
+    3300052: wine bottle..070
+    3300054: wine bottle..071
+    3300056: wine bottle..072
+    3300058: wine bottle..083
+    3300060: wine bottle..084
+    3300062: wine bottle..109
+    3300064: wine bottle..110
+    3300066: wine bottle..118
+    3300068: wine bottle..119
+    3300070: wine bottle..133
+    3300072: wine bottle..134
+    3300074: wine bottle..152
+    3300076: wine bottle..153
+    3300078: wine bottle..154
+    3300080: wine bottle..166
+    3300082: wine bottle..167
+    3300084: wine shelf
+    4300000: wine bottle
+    4300002: backer board
+    4300004: countertop
+    4300006: 'top '
+    4300008: wine shelf
+    4300010: glass shelf
+    4300012: cabinet
+    4300014: door left
+    4300016: door right
+    4300018: drawer
+    4300020: Circle
+    4300022: Circle.001
+    4300024: Circle.002
+    4300026: Circle.003
+    4300028: Circle.004
+    4300030: Circle.005
+    4300032: wine bottle..167
+    4300034: wine bottle..166
+    4300036: wine bottle..154
+    4300038: wine bottle..153
+    4300040: wine bottle..152
+    4300042: wine bottle..134
+    4300044: wine bottle..133
+    4300046: wine bottle..119
+    4300048: wine bottle..118
+    4300050: wine bottle..110
+    4300052: wine bottle..109
+    4300054: wine bottle..084
+    4300056: wine bottle..083
+    4300058: wine bottle..072
+    4300060: wine bottle..071
+    4300062: wine bottle..070
+    4300064: wine bottle..056
+    4300066: wine bottle..055
+    4300068: wine bottle..054
+    4300070: wine bottle..047
+    4300072: wine bottle..046
+    4300074: wine bottle..045
+    4300076: wine bottle..028
+    4300078: wine bottle..027
+    4300080: wine bottle..026
+    4300082: wine bottle..005
+    4300084: wine bottle..004
+    6400000: backer board
+    6400002: cabinet
+    6400004: Circle
+    6400006: Circle.001
+    6400008: Circle.002
+    6400010: Circle.003
+    6400012: Circle.004
+    6400014: Circle.005
+    6400016: countertop
+    6400018: door left
+    6400020: door right
+    6400022: drawer
+    6400024: glass shelf
+    6400026: 'top '
+    6400028: wine bottle
+    6400030: wine bottle..004
+    6400032: wine bottle..005
+    6400034: wine bottle..026
+    6400036: wine bottle..027
+    6400038: wine bottle..028
+    6400040: wine bottle..045
+    6400042: wine bottle..046
+    6400044: wine bottle..047
+    6400046: wine bottle..054
+    6400048: wine bottle..055
+    6400050: wine bottle..056
+    6400052: wine bottle..070
+    6400054: wine bottle..071
+    6400056: wine bottle..072
+    6400058: wine bottle..083
+    6400060: wine bottle..084
+    6400062: wine bottle..109
+    6400064: wine bottle..110
+    6400066: wine bottle..118
+    6400068: wine bottle..119
+    6400070: wine bottle..133
+    6400072: wine bottle..134
+    6400074: wine bottle..152
+    6400076: wine bottle..153
+    6400078: wine bottle..154
+    6400080: wine bottle..166
+    6400082: wine bottle..167
+    6400084: wine shelf
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 5
+    meshCompression: 0
+    addColliders: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

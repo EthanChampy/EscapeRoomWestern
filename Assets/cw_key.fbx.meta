@@ -1,0 +1,194 @@
+fileFormatVersion: 2
+guid: 1da13088818a5af49bf0cb25508ea07e
+timeCreated: 1523927600
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: axis
+    100002: axis_suppport.001
+    100004: axis_suppport.002
+    100006: //RootNode
+    100008: felt
+    100010: key
+    100012: limit.001
+    100014: limit.002
+    100016: nut
+    100018: plate_spring
+    100020: rod
+    100022: screw.001
+    100024: screw.002
+    100026: screw_big.001
+    100028: screw_big.002
+    100030: screw_small.001
+    100032: screw_small.002
+    100034: sheet_metal
+    100036: shim.001
+    100038: shim.002
+    100040: spring_wire
+    100042: spring_wire_tube
+    100044: spring_wire_tube.002
+    100046: wheel.001
+    100048: wheel.002
+    100050: wheel_small.001
+    100052: wheel_small.002
+    400000: axis
+    400002: axis_suppport.001
+    400004: axis_suppport.002
+    400006: //RootNode
+    400008: felt
+    400010: key
+    400012: limit.001
+    400014: limit.002
+    400016: nut
+    400018: plate_spring
+    400020: rod
+    400022: screw.001
+    400024: screw.002
+    400026: screw_big.001
+    400028: screw_big.002
+    400030: screw_small.001
+    400032: screw_small.002
+    400034: sheet_metal
+    400036: shim.001
+    400038: shim.002
+    400040: spring_wire
+    400042: spring_wire_tube
+    400044: spring_wire_tube.002
+    400046: wheel.001
+    400048: wheel.002
+    400050: wheel_small.001
+    400052: wheel_small.002
+    2300000: axis_suppport.001
+    2300002: axis_suppport.002
+    2300004: //RootNode
+    2300006: felt
+    2300008: key
+    2300010: rod
+    2300012: screw.001
+    2300014: screw.002
+    2300016: shim.001
+    2300018: shim.002
+    2300020: spring_wire
+    2300022: spring_wire_tube.002
+    2300024: wheel_small.001
+    2300026: wheel_small.002
+    3300000: axis_suppport.001
+    3300002: axis_suppport.002
+    3300004: //RootNode
+    3300006: felt
+    3300008: key
+    3300010: rod
+    3300012: screw.001
+    3300014: screw.002
+    3300016: shim.001
+    3300018: shim.002
+    3300020: spring_wire
+    3300022: spring_wire_tube.002
+    3300024: wheel_small.001
+    3300026: wheel_small.002
+    4300000: base
+    4300002: felt
+    4300004: screw.001
+    4300006: wheel_small.001
+    4300008: spring_wire
+    4300010: axis_suppport.001
+    4300012: rod
+    4300014: key
+    4300016: shim.001
+    4300018: spring_wire_tube.002
+    4300020: screw.002
+    4300022: wheel_small.002
+    4300024: shim.002
+    4300026: axis_suppport.002
+    6400000: axis_suppport.001
+    6400002: axis_suppport.002
+    6400004: //RootNode
+    6400006: felt
+    6400008: key
+    6400010: rod
+    6400012: screw.001
+    6400014: screw.002
+    6400016: shim.001
+    6400018: shim.002
+    6400020: spring_wire
+    6400022: spring_wire_tube.002
+    6400024: wheel_small.001
+    6400026: wheel_small.002
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.5
+    meshCompression: 0
+    addColliders: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

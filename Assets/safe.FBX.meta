@@ -1,0 +1,166 @@
+fileFormatVersion: 2
+guid: 73aba64c69f3a91488861e7e6ad01f3f
+timeCreated: 1523925204
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Bar1
+    100002: Bar2
+    100004: Box
+    100006: Door
+    100008: Handle1
+    100010: Handle2
+    100012: Handle3
+    100014: Handles
+    100016: Hinge1
+    100018: Hinge2
+    100020: Lock
+    100022: Plaque
+    100024: Rivet1
+    100026: Rivet2
+    100028: //RootNode
+    100030: Sphere
+    100032: Text
+    400000: Bar1
+    400002: Bar2
+    400004: Box
+    400006: Door
+    400008: Handle1
+    400010: Handle2
+    400012: Handle3
+    400014: Handles
+    400016: Hinge1
+    400018: Hinge2
+    400020: Lock
+    400022: Plaque
+    400024: Rivet1
+    400026: Rivet2
+    400028: //RootNode
+    400030: Sphere
+    400032: Text
+    2300000: Bar1
+    2300002: Bar2
+    2300004: Box
+    2300006: Door
+    2300008: Handle1
+    2300010: Handle2
+    2300012: Handle3
+    2300014: Handles
+    2300016: Hinge1
+    2300018: Hinge2
+    2300020: Lock
+    2300022: Plaque
+    2300024: Rivet1
+    2300026: Rivet2
+    2300028: Sphere
+    2300030: Text
+    3300000: Bar1
+    3300002: Bar2
+    3300004: Box
+    3300006: Door
+    3300008: Handle1
+    3300010: Handle2
+    3300012: Handle3
+    3300014: Handles
+    3300016: Hinge1
+    3300018: Hinge2
+    3300020: Lock
+    3300022: Plaque
+    3300024: Rivet1
+    3300026: Rivet2
+    3300028: Sphere
+    3300030: Text
+    4300000: Sphere
+    4300002: Door
+    4300004: Plaque
+    4300006: Text
+    4300008: Rivet2
+    4300010: Rivet1
+    4300012: Hinge2
+    4300014: Hinge1
+    4300016: Lock
+    4300018: Bar1
+    4300020: Bar2
+    4300022: Handles
+    4300024: Handle3
+    4300026: Handle2
+    4300028: Handle1
+    4300030: Box
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
