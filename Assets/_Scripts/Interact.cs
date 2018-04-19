@@ -9,6 +9,9 @@ public class Interact : MonoBehaviour {
     private int Morse = 0;
     GameObject ClockDoor;
 
+    private bool SafeKey = true;
+    GameObject SafeDoor;
+
     [SerializeField] private int raycastLength = 10;
     [SerializeField] private LayerMask LayerMaskInteract;
 
@@ -39,12 +42,23 @@ public class Interact : MonoBehaviour {
                     print("Click");
                 }
             }
+
+            if (hit.collider.CompareTag("SafeDoor"))
+            {
+                RaycastedObj = hit.collider.gameObject;
+
+                if (Input.GetKeyDown("e") && SafeKey == true)
+                {
+                    SafeDoor = GameObject.Find("SafeDoor");
+                    SafeDoor.transform.eulerAngles = new Vector3(-90, 0, -17);
+                }
+            }
         }
 
         if (Morse == 10)
         {
             ClockDoor = GameObject.Find("ClockDoor");
-            ClockDoor.transform.position = new Vector3(0, 0, 0);
+            ClockDoor.transform.eulerAngles = new Vector3(0, 300, 0);
         }
 	}
 }
