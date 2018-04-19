@@ -6,6 +6,9 @@ public class Interact : MonoBehaviour {
 
     private GameObject RaycastedObj;
 
+    private int Morse = 0;
+    GameObject ClockDoor;
+
     [SerializeField] private int raycastLength = 10;
     [SerializeField] private LayerMask LayerMaskInteract;
 
@@ -26,6 +29,22 @@ public class Interact : MonoBehaviour {
                 }
             }
 
+            if (hit.collider.CompareTag("Morse"))
+            {
+                RaycastedObj = hit.collider.gameObject;
+
+                if (Input.GetKeyDown("e"))
+                {
+                    Morse += 1;
+                    print("Click");
+                }
+            }
+        }
+
+        if (Morse == 10)
+        {
+            ClockDoor = GameObject.Find("ClockDoor");
+            ClockDoor.transform.position = new Vector3(0, 0, 0);
         }
 	}
 }

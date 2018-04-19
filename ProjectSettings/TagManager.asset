@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Object
+  - Morse
   layers:
   - Default
   - TransparentFX
