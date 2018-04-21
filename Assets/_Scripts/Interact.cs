@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interact : MonoBehaviour {
+public class Interact : MonoBehaviour
+{
 
     private GameObject RaycastedObj;
 
@@ -12,10 +13,14 @@ public class Interact : MonoBehaviour {
     private bool SafeKey = true;
     GameObject SafeDoor;
 
+    private int GunPuzzle = 0;
+    GameObject EscapeDoor;
+    GameObject ExpBarrel;
+
     [SerializeField] private int raycastLength = 10;
     [SerializeField] private LayerMask LayerMaskInteract;
 
-   void Update ()
+    void Update()
     {
         RaycastHit hit;
         Vector3 Forward = transform.TransformDirection(Vector3.forward);
@@ -53,12 +58,46 @@ public class Interact : MonoBehaviour {
                     SafeDoor.transform.eulerAngles = new Vector3(-90, 0, -17);
                 }
             }
+
+            if (hit.collider.CompareTag("Gun") || hit.collider.CompareTag("Bullet"))
+            {
+                RaycastedObj = hit.collider.gameObject;
+
+                if (Input.GetKeyDown("e"))
+                {
+                    GunPuzzle += 1;
+                    Destroy(RaycastedObj, 0f);
+                    print(GunPuzzle);
+                }
+            }
+
+            if (hit.collider.CompareTag("Barrel"))
+            {
+                RaycastedObj = hit.collider.gameObject;
+
+                if (Input.GetKeyDown("e") && GunPuzzle == 2 && RaycastedObj.transform.position == new Vector3(-2, 5.35f, -23.8f))
+                {
+                    EscapeDoor = GameObject.Find("ExpDoor");
+                    Destroy(EscapeDoor, 0f);
+                    ExpBarrel = GameObject.Find("ExpBarrel");
+                    Destroy(ExpBarrel, 0f);
+                    print("Winner");
+                }
+
+                if (Input.GetKeyDown("e") && RaycastedObj.transform.position != new Vector3(-2, 5.35f, -23.8f))
+                {
+                    RaycastedObj.transform.position = new Vector3(-2, 5.35f, -23.8f);
+                    print(GunPuzzle);
+                }
+            }
+
+
+            if (Morse == 10)
+            {
+                ClockDoor = GameObject.Find("ClockDoor");
+                ClockDoor.transform.eulerAngles = new Vector3(0, 300, 0);
+            }
         }
 
-        if (Morse == 10)
-        {
-            ClockDoor = GameObject.Find("ClockDoor");
-            ClockDoor.transform.eulerAngles = new Vector3(0, 300, 0);
-        }
-	}
+    }
 }

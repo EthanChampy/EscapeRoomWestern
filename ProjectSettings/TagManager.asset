@@ -7,6 +7,9 @@ TagManager:
   - Object
   - Morse
   - SafeDoor
+  - Barrel
+  - Gun
+  - Bullet
   layers:
   - Default
   - TransparentFX
