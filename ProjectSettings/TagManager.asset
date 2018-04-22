@@ -10,6 +10,7 @@ TagManager:
   - Barrel
   - Gun
   - Bullet
+  - Piano
   layers:
   - Default
   - TransparentFX

@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class Interact : MonoBehaviour
 {
+    GameObject Player;
 
     private GameObject RaycastedObj;
 
@@ -17,9 +20,21 @@ public class Interact : MonoBehaviour
     GameObject EscapeDoor;
     GameObject ExpBarrel;
 
+    public Button PianoA;
+    public Button PianoB;
+    public Button PianoC;
+    public Button PianoD;
+    public Button PianoE;
+    public Button PianoF;
+    public Button PianoG;
+
     [SerializeField] private int raycastLength = 10;
     [SerializeField] private LayerMask LayerMaskInteract;
 
+    void Start()
+    {
+        Player = GameObject.FindGameObjectWithTag("Player");
+    }
     void Update()
     {
         RaycastHit hit;
@@ -91,6 +106,23 @@ public class Interact : MonoBehaviour
                 }
             }
 
+            if (hit.collider.CompareTag("Piano"))
+            {
+                RaycastedObj = hit.collider.gameObject;
+
+                if (Input.GetKeyDown("e"))
+                {
+                    Player.GetComponent<FirstPersonController>().enabled = false;
+                    PianoA.gameObject.SetActive(true);
+                    PianoB.gameObject.SetActive(true);
+                    PianoC.gameObject.SetActive(true);
+                    PianoD.gameObject.SetActive(true);
+                    PianoE.gameObject.SetActive(true);
+                    PianoF.gameObject.SetActive(true);
+                    PianoG.gameObject.SetActive(true);
+                    Cursor.visible = true;
+                }
+            }
 
             if (Morse == 10)
             {
