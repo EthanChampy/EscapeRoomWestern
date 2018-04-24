@@ -16,9 +16,11 @@ public class Interact : MonoBehaviour
     private bool SafeKey = true;
     GameObject SafeDoor;
 
-    private int GunPuzzle = 0;
+    public int GunPuzzle = 0;
     GameObject EscapeDoor;
     GameObject ExpBarrel;
+    GameObject ExpD1;
+    GameObject ExpD2;
 
     public Button PianoA;
     public Button PianoB;
@@ -27,6 +29,21 @@ public class Interact : MonoBehaviour
     public Button PianoE;
     public Button PianoF;
     public Button PianoG;
+
+    public Text PQ;
+    public Text PW;
+    public Text PE;
+    public Text PR;
+    public Text PT;
+    public Text PY;
+    public Text PU;
+
+    public Image BottleClueImg;
+    bool BottleClueAct = false;
+
+    public Image ExpClueImg;
+    bool ClueExpAct = false;
+
 
     [SerializeField] private int raycastLength = 10;
     [SerializeField] private LayerMask LayerMaskInteract;
@@ -74,7 +91,7 @@ public class Interact : MonoBehaviour
                 }
             }
 
-            if (hit.collider.CompareTag("Gun") || hit.collider.CompareTag("Bullet"))
+            if (hit.collider.CompareTag("Gun"))
             {
                 RaycastedObj = hit.collider.gameObject;
 
@@ -96,6 +113,10 @@ public class Interact : MonoBehaviour
                     Destroy(EscapeDoor, 0f);
                     ExpBarrel = GameObject.Find("ExpBarrel");
                     Destroy(ExpBarrel, 0f);
+                    ExpD1 = GameObject.Find("ExpD1");
+                    Destroy(ExpD1, 0f);
+                    ExpD2 = GameObject.Find("ExpD2");
+                    Destroy(ExpD2, 0f);
                     print("Winner");
                 }
 
@@ -120,7 +141,55 @@ public class Interact : MonoBehaviour
                     PianoE.gameObject.SetActive(true);
                     PianoF.gameObject.SetActive(true);
                     PianoG.gameObject.SetActive(true);
-                    Cursor.visible = true;
+                    PQ.gameObject.SetActive(true);
+                    PW.gameObject.SetActive(true);
+                    PE.gameObject.SetActive(true);
+                    PR.gameObject.SetActive(true);
+                    PT.gameObject.SetActive(true);
+                    PY.gameObject.SetActive(true);
+                    PU.gameObject.SetActive(true);
+                }
+            }
+
+            if (hit.collider.CompareTag("BrokenBottle"))
+            {
+                RaycastedObj = hit.collider.gameObject;
+
+                if (Input.GetKeyDown("e"))
+                {
+                    BottleClueAct = true;
+                    Player.GetComponent<FirstPersonController>().enabled = false;
+                    BottleClueImg.gameObject.SetActive(true);
+                }
+            }
+
+            if (BottleClueAct == true)
+            {
+                if (Input.GetKeyDown("p"))
+                {
+                    Player.GetComponent<FirstPersonController>().enabled = true;
+                    BottleClueImg.gameObject.SetActive(false);
+                }
+            }
+
+            if (hit.collider.CompareTag("ClueExp"))
+            {
+                RaycastedObj = hit.collider.gameObject;
+
+                if (Input.GetKeyDown("e"))
+                {
+                    ClueExpAct = true;
+                    Player.GetComponent<FirstPersonController>().enabled = false;
+                    ExpClueImg.gameObject.SetActive(true);
+                }
+            }
+
+            if (ClueExpAct == true)
+            {
+                if (Input.GetKeyDown("p"))
+                {
+                    Player.GetComponent<FirstPersonController>().enabled = true;
+                    ExpClueImg.gameObject.SetActive(false);
                 }
             }
 
@@ -131,5 +200,24 @@ public class Interact : MonoBehaviour
             }
         }
 
+    }
+
+    public void PianoEscape()
+    {
+        Player.GetComponent<FirstPersonController>().enabled = true;
+        PianoA.gameObject.SetActive(false);
+        PianoB.gameObject.SetActive(false);
+        PianoC.gameObject.SetActive(false);
+        PianoD.gameObject.SetActive(false);
+        PianoE.gameObject.SetActive(false);
+        PianoF.gameObject.SetActive(false);
+        PianoG.gameObject.SetActive(false);
+        PQ.gameObject.SetActive(false);
+        PW.gameObject.SetActive(false);
+        PE.gameObject.SetActive(false);
+        PR.gameObject.SetActive(false);
+        PT.gameObject.SetActive(false);
+        PY.gameObject.SetActive(false);
+        PU.gameObject.SetActive(false);
     }
 }

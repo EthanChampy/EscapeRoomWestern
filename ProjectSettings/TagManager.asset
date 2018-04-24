@@ -11,6 +11,8 @@ TagManager:
   - Gun
   - Bullet
   - Piano
+  - BrokenBottle
+  - ClueExp
   layers:
   - Default
   - TransparentFX
