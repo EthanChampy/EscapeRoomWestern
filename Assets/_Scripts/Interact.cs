@@ -8,6 +8,8 @@ public class Interact : MonoBehaviour
 {
     GameObject Player;
 
+    bool FirstKey = false;
+
     private GameObject RaycastedObj;
 
     private int Morse = 0;
@@ -107,7 +109,7 @@ public class Interact : MonoBehaviour
             {
                 RaycastedObj = hit.collider.gameObject;
 
-                if (Input.GetKeyDown("e") && GunPuzzle == 2 && RaycastedObj.transform.position == new Vector3(-2, 5.35f, -23.8f))
+                if (Input.GetKeyDown("e") && GunPuzzle == 2 && RaycastedObj.transform.position == new Vector3(-2.616f, 4.85f, -24f))
                 {
                     EscapeDoor = GameObject.Find("ExpDoor");
                     Destroy(EscapeDoor, 0f);
@@ -122,7 +124,7 @@ public class Interact : MonoBehaviour
 
                 if (Input.GetKeyDown("e") && RaycastedObj.transform.position != new Vector3(-2, 5.35f, -23.8f))
                 {
-                    RaycastedObj.transform.position = new Vector3(-2, 5.35f, -23.8f);
+                    RaycastedObj.transform.position = new Vector3(-2.616f, 4.85f, -24f);
                     print(GunPuzzle);
                 }
             }
@@ -193,14 +195,46 @@ public class Interact : MonoBehaviour
                 }
             }
 
-            if (Morse == 10)
+            if (hit.collider.CompareTag("FirstDoor"))
             {
-                ClockDoor = GameObject.Find("ClockDoor");
-                ClockDoor.transform.eulerAngles = new Vector3(0, 300, 0);
+                RaycastedObj = hit.collider.gameObject;
+
+                if (Input.GetKeyDown("e"))
+                {
+
+                    if (FirstKey == true)
+                    {
+                        RaycastedObj.transform.eulerAngles = new Vector3(-90, 0, -30);
+                        print("Door Open!");
+                    }
+                    else
+                    {
+
+                    }
+                }
             }
+
+            if (hit.collider.CompareTag("FirstKey"))
+            {
+                RaycastedObj = hit.collider.gameObject;
+
+                if (Input.GetKeyDown("e"))
+                {
+                    FirstKey = true;
+                    print("Key Get!");
+                }
+            }
+
         }
 
+        if (Morse == 10)
+        {
+            ClockDoor = GameObject.Find("ClockDoor");
+            ClockDoor.transform.eulerAngles = new Vector3(0, 300, 0);
+        }
     }
+
+
 
     public void PianoEscape()
     {
@@ -221,3 +255,4 @@ public class Interact : MonoBehaviour
         PU.gameObject.SetActive(false);
     }
 }
+
