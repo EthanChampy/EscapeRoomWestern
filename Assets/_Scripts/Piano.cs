@@ -18,18 +18,84 @@ public class Piano : MonoBehaviour {
     }
     void Update ()
     {
-        if (Input.GetKey("w"))
+        if (PlayerCam.GetComponent<Interact>().PianoPlay == true)
         {
-            Pb = true;
-        }
-
-        if (Input.GetKey("q"))
-        {
-            if (Pb == true)
+            if (Input.GetKey("w"))
             {
-                Pa = true;
+                Pb = true;
             }
-            else
+
+            if (Input.GetKey("q"))
+            {
+                if (Pb == true)
+                {
+                    Pa = true;
+                }
+                else
+                {
+                    Pa = false;
+                    Pb = false;
+                    Pd = false;
+                    Pe = false;
+                    Pg = false;
+                }
+            }
+
+            if (Input.GetKey("r"))
+            {
+                if (Pb == true && Pa == true)
+                {
+                    Pd = true;
+                }
+
+                else
+                {
+                    Pa = false;
+                    Pb = false;
+                    Pd = false;
+                    Pe = false;
+                    Pg = false;
+                }
+            }
+
+            if (Input.GetKey("u"))
+            {
+                if (Pb == true && Pa == true && Pd == true)
+                {
+                    Pg = true;
+                }
+
+                else
+                {
+                    Pa = false;
+                    Pb = false;
+                    Pd = false;
+                    Pe = false;
+                    Pg = false;
+                }
+            }
+
+            if (Input.GetKeyDown("t"))
+            {
+                if (Pb == true && Pa == true && Pd == true && Pg == true)
+                {
+                    Pe = true;
+                    print("You Found A Bullet!");
+                    PlayerCam.GetComponent<Interact>().GunPuzzle += 1;
+                    PlayerCam.GetComponent<Interact>().Invoke("PianoEscape", 0f);
+                }
+
+                else
+                {
+                    Pa = false;
+                    Pb = false;
+                    Pd = false;
+                    Pe = false;
+                    Pg = false;
+                }
+            }
+
+            if (Input.GetKey("e") || Input.GetKey("y"))
             {
                 Pa = false;
                 Pb = false;
@@ -37,74 +103,11 @@ public class Piano : MonoBehaviour {
                 Pe = false;
                 Pg = false;
             }
-        }
 
-        if (Input.GetKey("r"))
-        {
-            if (Pb == true && Pa == true)
+            if (Input.GetKeyDown("p"))
             {
-                Pd = true;
-            }
-
-            else
-            {
-                Pa = false;
-                Pb = false;
-                Pd = false;
-                Pe = false;
-                Pg = false;
-            }
-        }
-
-        if (Input.GetKey("u"))
-        {
-            if (Pb == true && Pa == true && Pd == true)
-            {
-                Pg = true;
-            }
-
-            else
-            {
-                Pa = false;
-                Pb = false;
-                Pd = false;
-                Pe = false;
-                Pg = false;
-            }
-        }
-
-        if (Input.GetKeyDown("t"))
-        {
-            if (Pb == true && Pa == true && Pd == true && Pg == true)
-            {
-                Pe = true;
-                print("You Found A Bullet!");
-                PlayerCam.GetComponent<Interact>().GunPuzzle += 1;
                 PlayerCam.GetComponent<Interact>().Invoke("PianoEscape", 0f);
             }
-
-            else
-            {
-                Pa = false;
-                Pb = false;
-                Pd = false;
-                Pe = false;
-                Pg = false;
-            }
-        }
-
-        if (Input.GetKey("e") || Input.GetKey("y"))
-        {
-            Pa = false;
-            Pb = false;
-            Pd = false;
-            Pe = false;
-            Pg = false;
-        }
-
-        if (Input.GetKeyDown("p"))
-        {
-            PlayerCam.GetComponent<Interact>().Invoke("PianoEscape", 0f); 
         }
     }
 

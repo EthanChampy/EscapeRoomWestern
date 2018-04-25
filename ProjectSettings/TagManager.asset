@@ -15,6 +15,10 @@ TagManager:
   - ClueExp
   - FirstDoor
   - FirstKey
+  - Fuse
+  - BraiClue
+  - Brainting
+  - SafeClue
   layers:
   - Default
   - TransparentFX

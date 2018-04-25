@@ -8,6 +8,9 @@ public class Interact : MonoBehaviour
 {
     GameObject Player;
 
+    public bool PianoPlay = false;
+    public bool SafePlay = false;
+
     bool FirstKey = false;
 
     private GameObject RaycastedObj;
@@ -15,7 +18,8 @@ public class Interact : MonoBehaviour
     private int Morse = 0;
     GameObject ClockDoor;
 
-    private bool SafeKey = true;
+    bool FuseBool = false;
+
     GameObject SafeDoor;
 
     public int GunPuzzle = 0;
@@ -40,11 +44,28 @@ public class Interact : MonoBehaviour
     public Text PY;
     public Text PU;
 
+    public Text SafeText;
+    public Image B4F;
+    public Image B6F;
+    public Image B9F;
+    public Image B4T;
+    public Image B6T;
+    public Image B9T;
+
     public Image BottleClueImg;
     bool BottleClueAct = false;
 
     public Image ExpClueImg;
     bool ClueExpAct = false;
+
+    public Image BraiClueImg;
+    bool BraiClueAct;
+
+    public Image BraiGuideImg;
+    bool BraiGuideAct;
+
+    public Image Safeone;
+    bool SafeClueAct;
 
 
     [SerializeField] private int raycastLength = 10;
@@ -86,10 +107,26 @@ public class Interact : MonoBehaviour
             {
                 RaycastedObj = hit.collider.gameObject;
 
-                if (Input.GetKeyDown("e") && SafeKey == true)
+                if (Input.GetKeyDown("e"))
                 {
-                    SafeDoor = GameObject.Find("SafeDoor");
-                    SafeDoor.transform.eulerAngles = new Vector3(-90, 0, -17);
+                    SafePlay = true;
+                    Player.GetComponent<FirstPersonController>().enabled = false;
+                    B4F.gameObject.SetActive(true);
+                    B6F.gameObject.SetActive(true);
+                    B9F.gameObject.SetActive(true);
+                    SafeText.gameObject.SetActive(true);
+                }
+            }
+
+            if (hit.collider.CompareTag("Fuse"))
+            {
+                RaycastedObj = hit.collider.gameObject;
+
+                if (Input.GetKeyDown("e"))
+                {
+                    FuseBool = true;
+                    print("You found a fuse");
+                    Destroy(RaycastedObj, 0f);
                 }
             }
 
@@ -122,10 +159,15 @@ public class Interact : MonoBehaviour
                     print("Winner");
                 }
 
-                if (Input.GetKeyDown("e") && RaycastedObj.transform.position != new Vector3(-2, 5.35f, -23.8f))
+                if (Input.GetKeyDown("e") && RaycastedObj.transform.position != new Vector3(-2, 5.35f, -23.8f) && FuseBool == true)
                 {
                     RaycastedObj.transform.position = new Vector3(-2.616f, 4.85f, -24f);
                     print(GunPuzzle);
+                }
+
+                if (Input.GetKeyDown("e") && RaycastedObj.transform.position != new Vector3(-2, 5.35f, -23.8f) && FuseBool == false)
+                {
+                    print("You need to find a fuse");
                 }
             }
 
@@ -135,6 +177,7 @@ public class Interact : MonoBehaviour
 
                 if (Input.GetKeyDown("e"))
                 {
+                    PianoPlay = true;
                     Player.GetComponent<FirstPersonController>().enabled = false;
                     PianoA.gameObject.SetActive(true);
                     PianoB.gameObject.SetActive(true);
@@ -195,6 +238,69 @@ public class Interact : MonoBehaviour
                 }
             }
 
+            if (hit.collider.CompareTag("BraiClue"))
+            {
+                RaycastedObj = hit.collider.gameObject;
+
+                if (Input.GetKeyDown("e"))
+                {
+                    BraiClueAct = true;
+                    Player.GetComponent<FirstPersonController>().enabled = false;
+                    BraiClueImg.gameObject.SetActive(true);
+                }
+            }
+
+            if (BraiClueAct == true)
+            {
+                if (Input.GetKeyDown("p"))
+                {
+                    Player.GetComponent<FirstPersonController>().enabled = true;
+                    BraiClueImg.gameObject.SetActive(false);
+                }
+            }
+
+            if (hit.collider.CompareTag("Brainting"))
+            {
+                RaycastedObj = hit.collider.gameObject;
+
+                if (Input.GetKeyDown("e"))
+                {
+                    BraiGuideAct = true;
+                    Player.GetComponent<FirstPersonController>().enabled = false;
+                    BraiGuideImg.gameObject.SetActive(true);
+                }
+            }
+
+            if (BraiGuideAct == true)
+            {
+                if (Input.GetKeyDown("p"))
+                {
+                    Player.GetComponent<FirstPersonController>().enabled = true;
+                    BraiGuideImg.gameObject.SetActive(false);
+                }
+            }
+
+            if (hit.collider.CompareTag("SafeClue"))
+            {
+                RaycastedObj = hit.collider.gameObject;
+
+                if (Input.GetKeyDown("e"))
+                {
+                    SafeClueAct = true;
+                    Player.GetComponent<FirstPersonController>().enabled = false;
+                    Safeone.gameObject.SetActive(true);
+                }
+            }
+
+            if (SafeClueAct == true)
+            {
+                if (Input.GetKeyDown("p"))
+                {
+                    Player.GetComponent<FirstPersonController>().enabled = true;
+                    Safeone.gameObject.SetActive(false);
+                }
+            }
+
             if (hit.collider.CompareTag("FirstDoor"))
             {
                 RaycastedObj = hit.collider.gameObject;
@@ -222,6 +328,7 @@ public class Interact : MonoBehaviour
                 {
                     FirstKey = true;
                     print("Key Get!");
+                    Destroy(RaycastedObj, 0f);
                 }
             }
 
@@ -238,6 +345,7 @@ public class Interact : MonoBehaviour
 
     public void PianoEscape()
     {
+        PianoPlay = false;
         Player.GetComponent<FirstPersonController>().enabled = true;
         PianoA.gameObject.SetActive(false);
         PianoB.gameObject.SetActive(false);
@@ -253,6 +361,19 @@ public class Interact : MonoBehaviour
         PT.gameObject.SetActive(false);
         PY.gameObject.SetActive(false);
         PU.gameObject.SetActive(false);
+    }
+
+    public void BrailEscape()
+    {
+        SafePlay = false;
+        Player.GetComponent<FirstPersonController>().enabled = true;
+        B4F.gameObject.SetActive(false);
+        B6F.gameObject.SetActive(false);
+        B9F.gameObject.SetActive(false);
+        SafeText.gameObject.SetActive(false);
+        B4T.gameObject.SetActive(false);
+        B6T.gameObject.SetActive(false);
+        B9T.gameObject.SetActive(false);
     }
 }
 
