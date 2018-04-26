@@ -10,26 +10,39 @@ public class Piano : MonoBehaviour {
     private bool Pe = false;
     private bool Pg = false;
 
+    public AudioClip A;
+    public AudioClip B;
+    public AudioClip C;
+    public AudioClip D;
+    public AudioClip E;
+    public AudioClip F;
+    public AudioClip G;
+
+    AudioSource ThisAudioSource;
+
     GameObject PlayerCam;
 
     void Start()
     {
+        ThisAudioSource = this.gameObject.GetComponent<AudioSource>();
         PlayerCam = GameObject.FindGameObjectWithTag("MainCamera");
     }
     void Update ()
     {
         if (PlayerCam.GetComponent<Interact>().PianoPlay == true)
         {
-            if (Input.GetKey("w"))
+            if (Input.GetKeyDown("w"))
             {
                 Pb = true;
+                ThisAudioSource.PlayOneShot(B);
             }
 
-            if (Input.GetKey("q"))
+            if (Input.GetKeyDown("q"))
             {
                 if (Pb == true)
                 {
                     Pa = true;
+                    ThisAudioSource.PlayOneShot(A, 1);
                 }
                 else
                 {
@@ -38,14 +51,16 @@ public class Piano : MonoBehaviour {
                     Pd = false;
                     Pe = false;
                     Pg = false;
+                    ThisAudioSource.PlayOneShot(A);
                 }
             }
 
-            if (Input.GetKey("r"))
+            if (Input.GetKeyDown("r"))
             {
                 if (Pb == true && Pa == true)
                 {
                     Pd = true;
+                    ThisAudioSource.PlayOneShot(D);
                 }
 
                 else
@@ -55,14 +70,16 @@ public class Piano : MonoBehaviour {
                     Pd = false;
                     Pe = false;
                     Pg = false;
+                    ThisAudioSource.PlayOneShot(D);
                 }
             }
 
-            if (Input.GetKey("u"))
+            if (Input.GetKeyDown("u"))
             {
                 if (Pb == true && Pa == true && Pd == true)
                 {
                     Pg = true;
+                    ThisAudioSource.PlayOneShot(G);
                 }
 
                 else
@@ -72,6 +89,7 @@ public class Piano : MonoBehaviour {
                     Pd = false;
                     Pe = false;
                     Pg = false;
+                    ThisAudioSource.PlayOneShot(G);
                 }
             }
 
@@ -80,8 +98,9 @@ public class Piano : MonoBehaviour {
                 if (Pb == true && Pa == true && Pd == true && Pg == true)
                 {
                     Pe = true;
-                    print("You Found A Bullet!");
+                    PlayerCam.GetComponent<Interact>().Tooltip.text = "You find a bullet in the piano.";
                     PlayerCam.GetComponent<Interact>().GunPuzzle += 1;
+                    ThisAudioSource.PlayOneShot(E);
                     PlayerCam.GetComponent<Interact>().Invoke("PianoEscape", 0f);
                 }
 
@@ -92,11 +111,23 @@ public class Piano : MonoBehaviour {
                     Pd = false;
                     Pe = false;
                     Pg = false;
+                    ThisAudioSource.PlayOneShot(E);
                 }
             }
 
-            if (Input.GetKey("e") || Input.GetKey("y"))
+            if (Input.GetKeyDown("e"))
             {
+                ThisAudioSource.PlayOneShot(C);
+                Pa = false;
+                Pb = false;
+                Pd = false;
+                Pe = false;
+                Pg = false;
+            }
+
+            if (Input.GetKeyDown("y"))
+            {
+                ThisAudioSource.PlayOneShot(F);
                 Pa = false;
                 Pb = false;
                 Pd = false;

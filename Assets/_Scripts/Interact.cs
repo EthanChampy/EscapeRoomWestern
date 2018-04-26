@@ -8,6 +8,15 @@ public class Interact : MonoBehaviour
 {
     GameObject Player;
 
+    AudioSource PlayerAudio;
+
+    public AudioClip MorseDash;
+    public AudioClip MorseDot;
+    public AudioClip DoorOpen;
+    public AudioClip Click;
+
+    public Text Tooltip;
+
     public bool PianoPlay = false;
     public bool SafePlay = false;
 
@@ -27,6 +36,7 @@ public class Interact : MonoBehaviour
     GameObject ExpBarrel;
     GameObject ExpD1;
     GameObject ExpD2;
+    GameObject Cardy;
 
     public Button PianoA;
     public Button PianoB;
@@ -73,7 +83,9 @@ public class Interact : MonoBehaviour
 
     void Start()
     {
+        PlayerAudio = this.gameObject.GetComponent<AudioSource>();
         Player = GameObject.FindGameObjectWithTag("Player");
+        Tooltip.text = "";
     }
     void Update()
     {
@@ -89,6 +101,8 @@ public class Interact : MonoBehaviour
                 if (Input.GetKeyDown("e"))
                 {
                     RaycastedObj.SetActive(false);
+                    Cardy = GameObject.Find("Cardy");
+                    Destroy(Cardy, 0f);
                 }
             }
 
@@ -98,8 +112,9 @@ public class Interact : MonoBehaviour
 
                 if (Input.GetKeyDown("e"))
                 {
+                    PlayerAudio.PlayOneShot((MorseDash), 1);
                     Morse += 1;
-                    print("Click");
+                    Tooltip.text = "You click the Morse machine " + Morse + " times.";
                 }
             }
 
@@ -115,6 +130,7 @@ public class Interact : MonoBehaviour
                     B6F.gameObject.SetActive(true);
                     B9F.gameObject.SetActive(true);
                     SafeText.gameObject.SetActive(true);
+                    Tooltip.text = "Press P to escape.";
                 }
             }
 
@@ -125,7 +141,7 @@ public class Interact : MonoBehaviour
                 if (Input.GetKeyDown("e"))
                 {
                     FuseBool = true;
-                    print("You found a fuse");
+                    Tooltip.text = "You found a fuse.";
                     Destroy(RaycastedObj, 0f);
                 }
             }
@@ -138,7 +154,7 @@ public class Interact : MonoBehaviour
                 {
                     GunPuzzle += 1;
                     Destroy(RaycastedObj, 0f);
-                    print(GunPuzzle);
+                    Tooltip.text = "You found a gun.";
                 }
             }
 
@@ -156,18 +172,18 @@ public class Interact : MonoBehaviour
                     Destroy(ExpD1, 0f);
                     ExpD2 = GameObject.Find("ExpD2");
                     Destroy(ExpD2, 0f);
-                    print("Winner");
+                    Tooltip.text = "The TNT explodes.";
                 }
 
                 if (Input.GetKeyDown("e") && RaycastedObj.transform.position != new Vector3(-2, 5.35f, -23.8f) && FuseBool == true)
                 {
                     RaycastedObj.transform.position = new Vector3(-2.616f, 4.85f, -24f);
-                    print(GunPuzzle);
+                    Tooltip.text = "You need to find a way to ignite this.";
                 }
 
                 if (Input.GetKeyDown("e") && RaycastedObj.transform.position != new Vector3(-2, 5.35f, -23.8f) && FuseBool == false)
                 {
-                    print("You need to find a fuse");
+                    Tooltip.text = "You need to find a fuse.";
                 }
             }
 
@@ -193,6 +209,7 @@ public class Interact : MonoBehaviour
                     PT.gameObject.SetActive(true);
                     PY.gameObject.SetActive(true);
                     PU.gameObject.SetActive(true);
+                    Tooltip.text = "Press P to escape.";
                 }
             }
 
@@ -205,6 +222,7 @@ public class Interact : MonoBehaviour
                     BottleClueAct = true;
                     Player.GetComponent<FirstPersonController>().enabled = false;
                     BottleClueImg.gameObject.SetActive(true);
+                    Tooltip.text = "Press P to escape.";
                 }
             }
 
@@ -214,6 +232,7 @@ public class Interact : MonoBehaviour
                 {
                     Player.GetComponent<FirstPersonController>().enabled = true;
                     BottleClueImg.gameObject.SetActive(false);
+                    Tooltip.text = "";
                 }
             }
 
@@ -226,6 +245,7 @@ public class Interact : MonoBehaviour
                     ClueExpAct = true;
                     Player.GetComponent<FirstPersonController>().enabled = false;
                     ExpClueImg.gameObject.SetActive(true);
+                    Tooltip.text = "Press P to escape.";
                 }
             }
 
@@ -235,6 +255,7 @@ public class Interact : MonoBehaviour
                 {
                     Player.GetComponent<FirstPersonController>().enabled = true;
                     ExpClueImg.gameObject.SetActive(false);
+                    Tooltip.text = "";
                 }
             }
 
@@ -244,9 +265,11 @@ public class Interact : MonoBehaviour
 
                 if (Input.GetKeyDown("e"))
                 {
+                    PlayerAudio.PlayOneShot((Click), 1);
                     BraiClueAct = true;
                     Player.GetComponent<FirstPersonController>().enabled = false;
                     BraiClueImg.gameObject.SetActive(true);
+                    Tooltip.text = "Press P to escape.";
                 }
             }
 
@@ -256,6 +279,7 @@ public class Interact : MonoBehaviour
                 {
                     Player.GetComponent<FirstPersonController>().enabled = true;
                     BraiClueImg.gameObject.SetActive(false);
+                    Tooltip.text = "";
                 }
             }
 
@@ -265,9 +289,11 @@ public class Interact : MonoBehaviour
 
                 if (Input.GetKeyDown("e"))
                 {
+                    PlayerAudio.PlayOneShot((Click), 1);
                     BraiGuideAct = true;
                     Player.GetComponent<FirstPersonController>().enabled = false;
                     BraiGuideImg.gameObject.SetActive(true);
+                    Tooltip.text = "Press P to escape.";
                 }
             }
 
@@ -277,6 +303,7 @@ public class Interact : MonoBehaviour
                 {
                     Player.GetComponent<FirstPersonController>().enabled = true;
                     BraiGuideImg.gameObject.SetActive(false);
+                    Tooltip.text = "";
                 }
             }
 
@@ -286,9 +313,11 @@ public class Interact : MonoBehaviour
 
                 if (Input.GetKeyDown("e"))
                 {
+                    PlayerAudio.PlayOneShot((Click), 1);
                     SafeClueAct = true;
                     Player.GetComponent<FirstPersonController>().enabled = false;
                     Safeone.gameObject.SetActive(true);
+                    Tooltip.text = "Press P to escape.";
                 }
             }
 
@@ -298,6 +327,7 @@ public class Interact : MonoBehaviour
                 {
                     Player.GetComponent<FirstPersonController>().enabled = true;
                     Safeone.gameObject.SetActive(false);
+                    Tooltip.text = "";
                 }
             }
 
@@ -310,8 +340,9 @@ public class Interact : MonoBehaviour
 
                     if (FirstKey == true)
                     {
+                        PlayerAudio.PlayOneShot((Click), 1);
                         RaycastedObj.transform.eulerAngles = new Vector3(-90, 0, -30);
-                        print("Door Open!");
+                        Tooltip.text = "You open the door.";
                     }
                     else
                     {
@@ -326,9 +357,11 @@ public class Interact : MonoBehaviour
 
                 if (Input.GetKeyDown("e"))
                 {
+                    PlayerAudio.PlayOneShot((Click), 1);
                     FirstKey = true;
                     print("Key Get!");
                     Destroy(RaycastedObj, 0f);
+                    Tooltip.text = "You pick up a key.";
                 }
             }
 
@@ -336,6 +369,7 @@ public class Interact : MonoBehaviour
 
         if (Morse == 10)
         {
+
             ClockDoor = GameObject.Find("ClockDoor");
             ClockDoor.transform.eulerAngles = new Vector3(0, 300, 0);
         }

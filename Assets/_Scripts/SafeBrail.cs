@@ -25,15 +25,28 @@ public class SafeBrail : MonoBehaviour {
 
     void Update ()
     {
-        if (Input.GetKey("4"))
+        if (Input.GetKeyDown("4"))
         {
-            B4 = true;
-            B4T.gameObject.SetActive(true);
+            if (B4 == false)
+            {
+                B4 = true;
+                B4T.gameObject.SetActive(true);
+            }
+            else
+            {
+                B4 = false;
+                B6 = false;
+                B9 = false;
+
+                B4T.gameObject.SetActive(false);
+                B6T.gameObject.SetActive(false);
+                B9T.gameObject.SetActive(false);
+            }
         }
 
-        if (Input.GetKey("6"))
+        if (Input.GetKeyDown("6"))
         {
-            if (B4 == true)
+            if (B4 == true && B6 == false)
             {
                 B6 = true;
                 B6T.gameObject.SetActive(true);
@@ -50,13 +63,14 @@ public class SafeBrail : MonoBehaviour {
             }
         }
 
-        if (Input.GetKey("9"))
+        if (Input.GetKeyDown("9"))
         {
             if (B4 == true && B6 == true)
             {
                 B9 = true;
                 B9T.gameObject.SetActive(true);
                 SafeDoor.transform.eulerAngles = new Vector3(-90, 0, -17);
+                PlayerCam.GetComponent<Interact>().Tooltip.text = "The safe opens.";
                 PlayerCam.GetComponent<Interact>().Invoke("BrailEscape", 0f);
             }
 
