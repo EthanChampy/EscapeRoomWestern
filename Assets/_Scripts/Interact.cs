@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityStandardAssets.Characters.FirstPerson;
+using UnityEngine.SceneManagement;
 
 public class Interact : MonoBehaviour
 {
@@ -10,10 +11,13 @@ public class Interact : MonoBehaviour
 
     AudioSource PlayerAudio;
 
+    public ParticleSystem Explosion;
+
     public AudioClip MorseDash;
     public AudioClip MorseDot;
     public AudioClip DoorOpen;
     public AudioClip Click;
+    public AudioClip Explode;
 
     public Text Tooltip;
 
@@ -100,6 +104,7 @@ public class Interact : MonoBehaviour
 
                 if (Input.GetKeyDown("e"))
                 {
+                    PlayerAudio.PlayOneShot((Click), 1);
                     RaycastedObj.SetActive(false);
                     Cardy = GameObject.Find("Cardy");
                     Destroy(Cardy, 0f);
@@ -124,6 +129,7 @@ public class Interact : MonoBehaviour
 
                 if (Input.GetKeyDown("e"))
                 {
+                    PlayerAudio.PlayOneShot((Click), 1);
                     SafePlay = true;
                     Player.GetComponent<FirstPersonController>().enabled = false;
                     B4F.gameObject.SetActive(true);
@@ -140,6 +146,7 @@ public class Interact : MonoBehaviour
 
                 if (Input.GetKeyDown("e"))
                 {
+                    PlayerAudio.PlayOneShot((Click), 1);
                     FuseBool = true;
                     Tooltip.text = "You found a fuse.";
                     Destroy(RaycastedObj, 0f);
@@ -152,6 +159,7 @@ public class Interact : MonoBehaviour
 
                 if (Input.GetKeyDown("e"))
                 {
+                    PlayerAudio.PlayOneShot((Click), 1);
                     GunPuzzle += 1;
                     Destroy(RaycastedObj, 0f);
                     Tooltip.text = "You found a gun.";
@@ -162,8 +170,11 @@ public class Interact : MonoBehaviour
             {
                 RaycastedObj = hit.collider.gameObject;
 
+
                 if (Input.GetKeyDown("e") && GunPuzzle == 2 && RaycastedObj.transform.position == new Vector3(-2.616f, 4.85f, -24f))
                 {
+                    PlayerAudio.PlayOneShot((Explode), 1);
+                    Explosion.gameObject.SetActive(true);
                     EscapeDoor = GameObject.Find("ExpDoor");
                     Destroy(EscapeDoor, 0f);
                     ExpBarrel = GameObject.Find("ExpBarrel");
@@ -177,12 +188,14 @@ public class Interact : MonoBehaviour
 
                 if (Input.GetKeyDown("e") && RaycastedObj.transform.position != new Vector3(-2, 5.35f, -23.8f) && FuseBool == true)
                 {
+                    PlayerAudio.PlayOneShot((Click), 1);
                     RaycastedObj.transform.position = new Vector3(-2.616f, 4.85f, -24f);
                     Tooltip.text = "You need to find a way to ignite this.";
                 }
 
                 if (Input.GetKeyDown("e") && RaycastedObj.transform.position != new Vector3(-2, 5.35f, -23.8f) && FuseBool == false)
                 {
+                    PlayerAudio.PlayOneShot((Click), 1);
                     Tooltip.text = "You need to find a fuse.";
                 }
             }
@@ -219,6 +232,7 @@ public class Interact : MonoBehaviour
 
                 if (Input.GetKeyDown("e"))
                 {
+                    PlayerAudio.PlayOneShot((Click), 1);
                     BottleClueAct = true;
                     Player.GetComponent<FirstPersonController>().enabled = false;
                     BottleClueImg.gameObject.SetActive(true);
@@ -242,6 +256,7 @@ public class Interact : MonoBehaviour
 
                 if (Input.GetKeyDown("e"))
                 {
+                    PlayerAudio.PlayOneShot((Click), 1);
                     ClueExpAct = true;
                     Player.GetComponent<FirstPersonController>().enabled = false;
                     ExpClueImg.gameObject.SetActive(true);
@@ -365,7 +380,19 @@ public class Interact : MonoBehaviour
                 }
             }
 
+            if (hit.collider.CompareTag("Escape"))
+            {
+                RaycastedObj = hit.collider.gameObject;
+
+                if (Input.GetKeyDown("e"))
+                {
+                    SceneManager.LoadScene("WinScreen");
+                }
+            }
+            
+
         }
+
 
         if (Morse == 10)
         {
@@ -375,7 +402,13 @@ public class Interact : MonoBehaviour
         }
     }
 
-
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Escape"))
+        {
+            SceneManager.LoadScene("WinScreen");
+        }
+    }
 
     public void PianoEscape()
     {

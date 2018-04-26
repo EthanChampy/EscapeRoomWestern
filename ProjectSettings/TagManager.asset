@@ -19,6 +19,8 @@ TagManager:
   - BraiClue
   - Brainting
   - SafeClue
+  - Fire
+  - Escape
   layers:
   - Default
   - TransparentFX

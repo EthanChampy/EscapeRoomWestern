@@ -25,14 +25,70 @@ public class SafeBrail : MonoBehaviour {
 
     void Update ()
     {
-        if (Input.GetKeyDown("4"))
+        if (PlayerCam.GetComponent<Interact>().SafePlay == true)
         {
-            if (B4 == false)
+            if (Input.GetKeyDown("4"))
             {
-                B4 = true;
-                B4T.gameObject.SetActive(true);
+                if (B4 == false)
+                {
+                    B4 = true;
+                    B4T.gameObject.SetActive(true);
+                }
+                else
+                {
+                    B4 = false;
+                    B6 = false;
+                    B9 = false;
+
+                    B4T.gameObject.SetActive(false);
+                    B6T.gameObject.SetActive(false);
+                    B9T.gameObject.SetActive(false);
+                }
             }
-            else
+
+            if (Input.GetKeyDown("6"))
+            {
+                if (B4 == true && B6 == false)
+                {
+                    B6 = true;
+                    B6T.gameObject.SetActive(true);
+                }
+                else
+                {
+                    B4 = false;
+                    B6 = false;
+                    B9 = false;
+
+                    B4T.gameObject.SetActive(false);
+                    B6T.gameObject.SetActive(false);
+                    B9T.gameObject.SetActive(false);
+                }
+            }
+
+            if (Input.GetKeyDown("9"))
+            {
+                if (B4 == true && B6 == true)
+                {
+                    B9 = true;
+                    B9T.gameObject.SetActive(true);
+                    SafeDoor.transform.eulerAngles = new Vector3(-90, 0, -17);
+                    PlayerCam.GetComponent<Interact>().Tooltip.text = "The safe opens.";
+                    PlayerCam.GetComponent<Interact>().Invoke("BrailEscape", 0f);
+                }
+
+                else
+                {
+                    B4 = false;
+                    B6 = false;
+                    B9 = false;
+
+                    B4T.gameObject.SetActive(false);
+                    B6T.gameObject.SetActive(false);
+                    B9T.gameObject.SetActive(false);
+                }
+            }
+
+            if (Input.GetKey("1") || Input.GetKey("2") || Input.GetKey("3") || Input.GetKey("5") || Input.GetKey("7") || Input.GetKey("8") || Input.GetKey("0"))
             {
                 B4 = false;
                 B6 = false;
@@ -42,64 +98,11 @@ public class SafeBrail : MonoBehaviour {
                 B6T.gameObject.SetActive(false);
                 B9T.gameObject.SetActive(false);
             }
-        }
 
-        if (Input.GetKeyDown("6"))
-        {
-            if (B4 == true && B6 == false)
+            if (Input.GetKeyDown("p"))
             {
-                B6 = true;
-                B6T.gameObject.SetActive(true);
-            }
-            else
-            {
-                B4 = false;
-                B6 = false;
-                B9 = false;
-
-                B4T.gameObject.SetActive(false);
-                B6T.gameObject.SetActive(false);
-                B9T.gameObject.SetActive(false);
-            }
-        }
-
-        if (Input.GetKeyDown("9"))
-        {
-            if (B4 == true && B6 == true)
-            {
-                B9 = true;
-                B9T.gameObject.SetActive(true);
-                SafeDoor.transform.eulerAngles = new Vector3(-90, 0, -17);
-                PlayerCam.GetComponent<Interact>().Tooltip.text = "The safe opens.";
                 PlayerCam.GetComponent<Interact>().Invoke("BrailEscape", 0f);
             }
-
-            else
-            {
-                B4 = false;
-                B6 = false;
-                B9 = false;
-
-                B4T.gameObject.SetActive(false);
-                B6T.gameObject.SetActive(false);
-                B9T.gameObject.SetActive(false);
-            }
-        }
-
-        if (Input.GetKey("1") || Input.GetKey("2") || Input.GetKey("3") || Input.GetKey("5") || Input.GetKey("7") || Input.GetKey("8") || Input.GetKey("0"))
-        {
-            B4 = false;
-            B6 = false;
-            B9 = false;
-
-            B4T.gameObject.SetActive(false);
-            B6T.gameObject.SetActive(false);
-            B9T.gameObject.SetActive(false);
-        }
-
-        if (Input.GetKeyDown("p"))
-        {
-            PlayerCam.GetComponent<Interact>().Invoke("BrailEscape", 0f);
         }
 
     }

@@ -11,3 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/HighNoon.unity
     guid: cd3e69044ae7fe846988616109de26e5
+  - enabled: 1
+    path: Assets/WinScreen.unity
+    guid: 7d2c55d2eaf9b3349bff8c3dd4c2cd85
+  - enabled: 1
+    path: Assets/LoseScreen.unity
+    guid: 6421661d61304d0429f88f7a39f2627e

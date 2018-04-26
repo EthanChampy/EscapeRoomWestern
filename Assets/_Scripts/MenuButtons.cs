@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 public class MenuButtons : MonoBehaviour {
 
 	// Use this for initialization
-	void Start () {
-		
+	void Start ()
+    {
+        Cursor.visible = true;
 	}
 	
 	// Update is called once per frame
@@ -18,5 +19,20 @@ public class MenuButtons : MonoBehaviour {
     public void StartGame()
     {
         SceneManager.LoadScene("HighNoon");
+    }
+
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene("StartMenu");
+    }
+
+    public void LoadLose()
+    {
+        SceneManager.LoadScene("LoseScreen");
+    }
+
+    public void LoadWin()
+    {
+        SceneManager.LoadScene("WinScreen");
     }
 }
